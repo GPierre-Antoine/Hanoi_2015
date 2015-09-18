@@ -1,18 +1,7 @@
 cmake_minimum_required(VERSION 3.3)
 project(Hanoi_2015)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -lGL -lGLU")
-
-#########################################################
-# FIND GLUT
-#########################################################
-#find_package(GLUT REQUIRED)
-#include_directories(${GLUT_INCLUDE_DIRS})
-#link_directories(${GLUT_LIBRARY_DIRS})
-#add_definitions(${GLUT_DEFINITIONS})
-#if (NOT GLUT_FOUND)
-#    message(ERROR " GLUT not found!")
-#endif (NOT GLUT_FOUND)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -lGL ")
 
 #########################################################
 # FIND OPENGL
@@ -28,11 +17,10 @@ endif (NOT OPENGL_FOUND)
 #########################################################
 # Include Files
 #########################################################
-add_executable(Hanoi_2015 main.cpp HanoiCube.cpp HanoiCube.h HanoiPoint.cpp HanoiPoint.h)
+add_executable(Hanoi_2015 main.cpp gl3.h)
 
 ########################################################
 # Linking & stuff
 #########################################################
 
-# create the program "test"
 target_link_libraries(Hanoi_2015 ${OPENGL_LIBRARIES} ${GLUT_LIBRARY})

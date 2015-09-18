@@ -5,6 +5,10 @@
 #include <iostream>
 #include "HanoiCube.h"
 
+#include <cstdio>
+#include <cstdlib>
+
+
 using namespace std;
 using namespace nsHanoi;
 
