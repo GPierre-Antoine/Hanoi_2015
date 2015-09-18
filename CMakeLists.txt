@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.3)
-project(ToursHanoiMaths)
+project(Hanoi_2015)
 
 #########################################################
 # FIND GLUT
@@ -26,11 +26,11 @@ endif (NOT OPENGL_FOUND)
 #########################################################
 # Include Files
 #########################################################
-add_executable(ToursHanoiMaths main.cpp)
+add_executable(Hanoi_2015 main.cpp)
 
 ########################################################
 # Linking & stuff
 #########################################################
 
 # create the program "test"
-target_link_libraries(ToursHanoiMaths ${OPENGL_LIBRARIES} ${GLUT_LIBRARY})
+target_link_libraries(Hanoi_2015 ${OPENGL_LIBRARIES} ${GLUT_LIBRARY})
