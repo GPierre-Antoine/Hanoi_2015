@@ -28,7 +28,7 @@ endif (NOT OPENGL_FOUND)
 #########################################################
 # Include Files
 #########################################################
-add_executable(Hanoi_2015 main.cpp)
+add_executable(Hanoi_2015 main.cpp HanoiCube.cpp HanoiCube.h HanoiPoint.cpp HanoiPoint.h)
 
 ########################################################
 # Linking & stuff
