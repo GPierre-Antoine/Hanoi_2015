@@ -1,14 +1,15 @@
+//
+// main.cpp
+//
+
 #include <iostream>
-#include <array>
+#include "HanoiCube.h"
 
 using namespace std;
+using namespace nsHanoi;
 
 int main()
 {
-    float A[3];
-    A[0] = 1;
-    A[1] = 2;
-    A[2] = 3;
-    cout << A[0] << A[1] << A[2];
+    HanoiCube(HanoiPoint(0, 0, 0), HanoiPoint(1, 0, 0), HanoiPoint(0, 0, -1), HanoiPoint(0, 1, 0));
     return 0;
 }
