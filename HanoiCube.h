@@ -14,6 +14,7 @@ namespace nsHanoi
     private:
         float m_Points[8][3];
 
+
         void setPoint(int Case, float X, float Y, float Z) noexcept;
 
     public:

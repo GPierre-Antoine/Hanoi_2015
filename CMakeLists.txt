@@ -8,27 +8,32 @@ SET(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}")
 #########################################################
 # FIND OPENGL
 #########################################################
-find_package(OpenGL REQUIRED)
-include_directories(${OpenGL_INCLUDE_DIRS})
-link_directories(${OpenGL_LIBRARY_DIRS})
-add_definitions(${OpenGL_DEFINITIONS})
-if (NOT OPENGL_FOUND)
-    message(ERROR " OPENGL not found!")
-endif (NOT OPENGL_FOUND)
-
-
-set(SDL2_INCLUDE_DIR /usr/include/SDL2)
-set(SDL2_LIBRARY /usr/lib/libSDL2.so)
-
-include_directories(${SDL2_INCLUDE_DIRS})
-link_directories(${SDL2_LIBRARY})
+#find_package(OpenGL REQUIRED)
+#include_directories(${OpenGL_INCLUDE_DIRS})
+#link_directories(${OpenGL_LIBRARY_DIRS})
+#add_definitions(${OpenGL_DEFINITIONS})
+#if (NOT OPENGL_FOUND)
+#    message(ERROR " OPENGL not found!")
+#endif (NOT OPENGL_FOUND)
+#
+#
+#set(SDL2_INCLUDE_DIR /usr/include/SDL2)
+#set(SDL2_LIBRARY /usr/lib/libSDL2.so)
+#
+#include_directories(${SDL2_INCLUDE_DIRS})
+#link_directories(${SDL2_LIBRARY})
 
 
 
 #########################################################
 # Include Files
 #########################################################
-add_executable(Hanoi_2015 main.cpp)
+
+
+
+set(SOURCE_FILES HanoiCube.cpp HanoiPoint.cpp)
+
+add_executable(Hanoi_2015 main.cpp ${SOURCE_FILES})
 
 ########################################################
 # Linking & stuff
