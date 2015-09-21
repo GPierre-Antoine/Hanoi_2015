@@ -36,14 +36,14 @@ CUBE::HanoiCube(const HanoiPoint &A, const HanoiPoint &B,
 }
 
 
-void CUBE::setPoint(int Case, float X, float Y, float Z, float W) noexcept
+void CUBE::setPoint(unsigned Case, float X, float Y, float Z, float W) noexcept
 {
     if (Case >= 0 || Case <= 7)
     {
-        m_Points[Case][0] = X;
-        m_Points[Case][1] = Y;
-        m_Points[Case][2] = Z;
-        m_Points[Case][3] = W;
+        m_VPoints[Case][0] = X;
+        m_VPoints[Case][1] = Y;
+        m_VPoints[Case][2] = Z;
+        m_VPoints[Case][3] = W;
     }
 }
 
@@ -57,16 +57,28 @@ void CUBE::Move(float XTranslation, float YTranslation, float ZTranslation) noex
     //  (w)      (0 0 0 1 )     (w')
 
     //Définition de la matrice Transformation
-    nsHanoi::Mat4x4 Transformation;
-    Transformation[0] = {1, 0, 0, XTranslation};
-    Transformation[1] = {0, 1, 0, YTranslation};
-    Transformation[2] = {0, 0, 1, ZTranslation};
-    Transformation[3] = {0, 0, 0, 1};
+    nsHanoi::HanoiMatrix Transformation;
+    Transformation.SetLine(0, 1, 0, 0, XTranslation);
+    Transformation.SetLine(1, 0, 1, 0, YTranslation);
+    Transformation.SetLine(2, 0, 0, 1, ZTranslation);
+    Transformation.SetLine(3, 0, 0, 0, 1);
 
     ApplyTransformation(Transformation);
 }
 
-void CUBE::ApplyTransformation(const nsHanoi::Mat4x4 & Transformation) noexcept
+#define T Transformation.m_M
+#define P m_VPoints
+
+void CUBE::ApplyTransformation(const nsHanoi::HanoiMatrix &Transformation) noexcept
 {
 
+    for (unsigned i = 0; i < 8; ++i)
+    {
+        float x2;
+        x2 = P[i][0] * T[0][0];
+    }
+
 }
+
+#undef P
+#undef T

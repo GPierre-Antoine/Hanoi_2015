@@ -6,22 +6,20 @@
 #pragma once
 
 #include "HanoiPoint.h"
+#include "HanoiMatrix.h"
 #include <vector>
 
 namespace nsHanoi
 {
-    typedef float
-    typedef float Mat4x4[4][4];
-
     class HanoiCube
     {
     private:
-        float m_Points[8][4];
+        float m_VPoints[8][4];
         //Tableau de points, chacun correspondant à un sommet du cube
         //8 Vecteurs : (x, y, z, w)
 
 
-        void setPoint(int Case, float X, float Y, float Z, float W) noexcept;
+        void setPoint(unsigned Case, float X, float Y, float Z, float W) noexcept;
 
     public:
         //          H-------G
@@ -36,7 +34,7 @@ namespace nsHanoi
 
         void Move(float XTranslation, float YTranslation, float ZTranslation) noexcept;
 
-        void ApplyTransformation(const Mat4x4 & Transformation) noexcept;
+        void ApplyTransformation(const HanoiMatrix &Transformation) noexcept;
 
 
     };

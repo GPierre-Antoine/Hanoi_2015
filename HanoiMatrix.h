@@ -2,14 +2,14 @@
 // Created by j14003626 on 21/09/15.
 //
 
-#ifndef HANOI_2015_HANOIMATRIX_H
-#define HANOI_2015_HANOIMATRIX_H
+#pragma once
 
-
-class HanoiMatrix
+namespace nsHanoi
 {
+    struct HanoiMatrix
+    {
+        float m_M[4][4];
 
-};
-
-
-#endif //HANOI_2015_HANOIMATRIX_H
+        void SetLine(unsigned Line, float A, float B, float C, float D) noexcept;
+    };
+}
