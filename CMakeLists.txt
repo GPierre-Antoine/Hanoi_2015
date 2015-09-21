@@ -31,7 +31,7 @@ SET(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}")
 
 
 
-set(SOURCE_FILES HanoiCube.cpp HanoiPoint.cpp)
+set(SOURCE_FILES HanoiCube.cpp HanoiPoint.cpp HanoiMatrix.cpp HanoiMatrix.h)
 
 add_executable(Hanoi_2015 main.cpp ${SOURCE_FILES})
 
