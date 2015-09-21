@@ -74,8 +74,15 @@ void CUBE::ApplyTransformation(const nsHanoi::HanoiMatrix &Transformation) noexc
 
     for (unsigned i = 0; i < 8; ++i)
     {
-        float x2;
-        x2 = P[i][0] * T[0][0];
+        // X
+        m_VPoints[i][0] = P[i][0] * T[0][0] +P[i][1] * T[0][1] +P[i][2] * T[0][2] +P[i][3] * T[0][3];
+        // Y
+        m_VPoints[i][1] = P[i][0] * T[1][0] +P[i][1] * T[1][1] +P[i][2] * T[1][2] +P[i][3] * T[1][3];
+        // Z
+        m_VPoints[i][2] = P[i][0] * T[2][0] +P[i][1] * T[2][1] +P[i][2] * T[2][2] +P[i][3] * T[2][3];
+        // W
+        m_VPoints[i][3] = P[i][0] * T[3][0] +P[i][1] * T[3][1] +P[i][2] * T[3][2] +P[i][3] * T[3][3];
+
     }
 
 }
