@@ -1,13 +1,13 @@
 cmake_minimum_required(VERSION 3.3)
 project(Hanoi_2015)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -lGL ")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -mwindows")
+set(EXECUTABLE_NAME Hanoi_2015)
 
-SET(CMAKE_MODULE_PATH "D:/CLion 1.1.1/bin/cmake/share/cmake-3.3/Modules")
+
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/Modules/")
 message(WARNING ${CMAKE_MODULE_PATH})
 
-
-include(SFMLHelper.cmake)
 
 #########################################################
 # FIND OPENGL
@@ -16,30 +16,29 @@ find_package(OpenGL REQUIRED)
 include_directories(${OpenGL_INCLUDE_DIRS})
 link_directories(${OpenGL_LIBRARY_DIRS})
 add_definitions(${OpenGL_DEFINITIONS})
+target_link_libraries(${EXECUTABLE_NAME} ${OPENGL_LIBRARIES})
 if (NOT OPENGL_FOUND)
     message(ERROR " OPENGL not found!")
 endif (NOT OPENGL_FOUND)
 
 
-set(SDL2_INCLUDE_DIR /usr/include/SDL2)
-set(SDL2_LIBRARY /usr/lib/libSDL2.so)
-
-include_directories(${SDL2_INCLUDE_DIRS})
-link_directories(${SDL2_LIBRARY})
 
 
+set(SFML_ROOT D:/SFML2/)
+find_package(SFML 2 REQUIRED audio graphics network window system)
 
-#########################################################
-# Include Files
-#########################################################
-add_executable(Hanoi_2015 main.cpp)
 
+if(SFML_FOUND)
+
+    include_directories(${SFML_INCLUDE_DIR})
+    target_link_libraries(${EXECUTABLE_NAME} ${SFML_LIBRARIES})
+endif()
 ########################################################
 # Linking & stuff
 #########################################################
 
-target_link_libraries(Hanoi_2015 ${OPENGL_LIBRARIES})
 include_directories(./include)
 file(GLOB Cepepes ./cepepe/*.cpp)
 
 add_executable(Hanoi_2015 main.cpp ${Cepepes})
+

@@ -9,7 +9,6 @@
 
 
 
-set(SFML_ROOT D:/SFML2/)
 
 
 
@@ -44,12 +43,3 @@ set(SFML_ROOT D:/SFML2/)
 #                                                                                                       #
 #########################################################################################################
 
-find_package(SFML 2 REQUIRED audio graphics network window system)
-
-
-if(SFML_FOUND)
-
-    include_directories(${SFML_INCLUDE_DIR})
-    target_link_libraries(${EXECUTABLE_NAME} ${SFML_LIBRARIES})
-
-endif()
