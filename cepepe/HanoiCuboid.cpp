@@ -8,7 +8,7 @@
 #define HAN nsHanoi::HanoiCuboid
 
 HAN::HanoiCuboid(const HanoiPoint &A, const HanoiPoint &B,
-                const HanoiPoint &D, const HanoiPoint &E)
+                 const HanoiPoint &D, const HanoiPoint &E)
 {
     //A
     setPoint(0, A.X(), A.Y(), A.Z(), 1.0);
@@ -76,13 +76,13 @@ void HAN::ApplyTransformation(const nsHanoi::HanoiMatrix &Transformation) noexce
     for (unsigned i = 0; i < 8; ++i)
     {
         // X
-        m_VPoints[i][0] = P[i][0] * T[0][0] +P[i][1] * T[0][1] +P[i][2] * T[0][2] +P[i][3] * T[0][3];
+        m_VPoints[i][0] = P[i][0] * T[0][0] + P[i][1] * T[0][1] + P[i][2] * T[0][2] + P[i][3] * T[0][3];
         // Y
-        m_VPoints[i][1] = P[i][0] * T[1][0] +P[i][1] * T[1][1] +P[i][2] * T[1][2] +P[i][3] * T[1][3];
+        m_VPoints[i][1] = P[i][0] * T[1][0] + P[i][1] * T[1][1] + P[i][2] * T[1][2] + P[i][3] * T[1][3];
         // Z
-        m_VPoints[i][2] = P[i][0] * T[2][0] +P[i][1] * T[2][1] +P[i][2] * T[2][2] +P[i][3] * T[2][3];
+        m_VPoints[i][2] = P[i][0] * T[2][0] + P[i][1] * T[2][1] + P[i][2] * T[2][2] + P[i][3] * T[2][3];
         // W
-        m_VPoints[i][3] = P[i][0] * T[3][0] +P[i][1] * T[3][1] +P[i][2] * T[3][2] +P[i][3] * T[3][3];
+        m_VPoints[i][3] = P[i][0] * T[3][0] + P[i][1] * T[3][1] + P[i][2] * T[3][2] + P[i][3] * T[3][3];
 
     }
 
@@ -90,3 +90,12 @@ void HAN::ApplyTransformation(const nsHanoi::HanoiMatrix &Transformation) noexce
 
 #undef P
 #undef T
+
+bool HAN::operator==(const HanoiCuboid &Pave) const noexcept
+{
+    for (unsigned i = 0; i < 8; ++i)
+        for (unsigned j = 0; j < 3; ++j)
+            if (m_VPoints[i][j] != Pave.m_VPoints[i][j])
+                return false;
+    return true;
+}
