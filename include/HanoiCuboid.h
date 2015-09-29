@@ -43,7 +43,9 @@ namespace nsHanoi
         //Desc : effectue la multiplication matricielle (avec $Transformation) pour chaque point du pave
         void ApplyTransformation(const HanoiMatrix &Transformation) noexcept;
 
+        //Param : Un autre pave
+        //Desc : Compare deux cubes pour voir si leur position est equivalente
+        bool operator == (const HanoiCuboid & Pave) const noexcept;
 
     };
 }
-
