@@ -1,13 +1,13 @@
 //
-// HanoiCube.cpp
+// HanoiCuboid.cpp
 // Created by j14003626 on 18/09/15.
 //
 
-#include "HanoiCube.h"
+#include "HanoiCuboid.h"
 
-#define CUBE nsHanoi::HanoiCube
+#define HAN nsHanoi::HanoiCuboid
 
-CUBE::HanoiCube(const HanoiPoint &A, const HanoiPoint &B,
+HAN::HanoiCuboid(const HanoiPoint &A, const HanoiPoint &B,
                 const HanoiPoint &D, const HanoiPoint &E)
 {
     //A
@@ -36,7 +36,7 @@ CUBE::HanoiCube(const HanoiPoint &A, const HanoiPoint &B,
 }
 
 
-void CUBE::setPoint(unsigned Case, float X, float Y, float Z, float W) noexcept
+void HAN::setPoint(unsigned Case, float X, float Y, float Z, float W) noexcept
 {
     if (Case >= 0 || Case <= 7)
     {
@@ -47,7 +47,7 @@ void CUBE::setPoint(unsigned Case, float X, float Y, float Z, float W) noexcept
     }
 }
 
-void CUBE::Move(float XTranslation, float YTranslation, float ZTranslation) noexcept
+void HAN::Move(float XTranslation, float YTranslation, float ZTranslation) noexcept
 {
     //Appliquer mouvement :
     //this *= Mat4x4
@@ -66,10 +66,11 @@ void CUBE::Move(float XTranslation, float YTranslation, float ZTranslation) noex
     ApplyTransformation(Transformation);
 }
 
+//Pour plus de compréhension dans la fonction suivante
 #define T Transformation.m_M
 #define P m_VPoints
 
-void CUBE::ApplyTransformation(const nsHanoi::HanoiMatrix &Transformation) noexcept
+void HAN::ApplyTransformation(const nsHanoi::HanoiMatrix &Transformation) noexcept
 {
 
     for (unsigned i = 0; i < 8; ++i)
