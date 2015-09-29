@@ -6,6 +6,9 @@
 
 #include <SFML/Graphics.hpp>
 
+
+#include <SFML/OpenGL.hpp>
+
 using namespace nsHanoi;
 
 int main()

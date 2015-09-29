@@ -21,14 +21,14 @@ add_executable(${EXECUTABLE_NAME} main.cpp ${Cepepes})
 #########################################################
 # FIND OPENGL
 #########################################################
-#find_package(OpenGL REQUIRED)
-#if (OPENGL_FOUND)
-#    include_directories(${OpenGL_INCLUDE_DIRS})
-#    link_directories(${OpenGL_LIBRARY_DIRS})
-#    add_definitions(${OpenGL_DEFINITIONS})
-#    target_link_libraries(${EXECUTABLE_NAME} ${OPENGL_LIBRARIES})
-#    message(ERROR " OPENGL not found!")
-#endif (OPENGL_FOUND)
+find_package(OpenGL REQUIRED)
+if (OPENGL_FOUND)
+    include_directories(${OpenGL_INCLUDE_DIRS})
+    link_directories(${OpenGL_LIBRARY_DIRS})
+    add_definitions(${OpenGL_DEFINITIONS})
+    target_link_libraries(${EXECUTABLE_NAME} ${OPENGL_LIBRARIES})
+    message(ERROR " OPENGL not found!")
+endif (OPENGL_FOUND)
 
 
 
