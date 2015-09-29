@@ -1,16 +1,9 @@
 cmake_minimum_required(VERSION 3.3)
 project(Hanoi_2015)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -lGL ")
 
-SET(CMAKE_MODULE_PATH D:/CLion 1.1.1/bin/cmake/share/cmake-3.3/Modules)
-
-MESSAGE(WARNING "${CMAKE_MODULE_PATH}")
-
-include (SFMLHelper.cmake)
-
-
-
+SET(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}")
 
 #########################################################
 # FIND OPENGL
@@ -22,6 +15,15 @@ add_definitions(${OpenGL_DEFINITIONS})
 if (NOT OPENGL_FOUND)
     message(ERROR " OPENGL not found!")
 endif (NOT OPENGL_FOUND)
+
+
+set(SDL2_INCLUDE_DIR /usr/include/SDL2)
+set(SDL2_LIBRARY /usr/lib/libSDL2.so)
+
+include_directories(${SDL2_INCLUDE_DIRS})
+link_directories(${SDL2_LIBRARY})
+
+
 
 #########################################################
 # Include Files
