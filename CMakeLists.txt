@@ -6,30 +6,26 @@ set(EXECUTABLE_NAME Hanoi_2015)
 
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/Modules/")
-message(WARNING ${CMAKE_MODULE_PATH})
 
 
 #########################################################
 # FIND OPENGL
 #########################################################
-find_package(OpenGL REQUIRED)
-include_directories(${OpenGL_INCLUDE_DIRS})
-link_directories(${OpenGL_LIBRARY_DIRS})
-add_definitions(${OpenGL_DEFINITIONS})
-target_link_libraries(${EXECUTABLE_NAME} ${OPENGL_LIBRARIES})
-if (NOT OPENGL_FOUND)
-    message(ERROR " OPENGL not found!")
-endif (NOT OPENGL_FOUND)
-
+#find_package(OpenGL REQUIRED)
+#if (OPENGL_FOUND)
+#    include_directories(${OpenGL_INCLUDE_DIRS})
+#    link_directories(${OpenGL_LIBRARY_DIRS})
+#    add_definitions(${OpenGL_DEFINITIONS})
+#    target_link_libraries(${EXECUTABLE_NAME} ${OPENGL_LIBRARIES})
+#    message(ERROR " OPENGL not found!")
+#endif (OPENGL_FOUND)
 
 
 
 set(SFML_ROOT D:/SFML2/)
 find_package(SFML 2 REQUIRED audio graphics network window system)
 
-
 if(SFML_FOUND)
-
     include_directories(${SFML_INCLUDE_DIR})
     target_link_libraries(${EXECUTABLE_NAME} ${SFML_LIBRARIES})
 endif()
