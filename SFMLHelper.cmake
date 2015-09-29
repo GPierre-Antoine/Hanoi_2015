@@ -7,7 +7,9 @@
 # FINDING SFML : PUT HERE THE PATH TO THE SFML FOLDER
 # this is an exemple.
 
-set(SFML_ROOT D:/SFML2/cmake/Modules/FindSFML.cmake)
+
+
+set(SFML_ROOT D:/SFML2/)
 
 
 

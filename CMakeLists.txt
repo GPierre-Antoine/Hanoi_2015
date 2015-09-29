@@ -3,8 +3,8 @@ project(Hanoi_2015)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -lGL ")
 
-SET(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}")
-
+SET(CMAKE_MODULE_PATH "D:/CLion 1.1.1/bin/cmake/share/cmake-3.3/Modules")
+message(WARNING ${CMAKE_MODULE_PATH})
 
 
 include(SFMLHelper.cmake)
