@@ -7,6 +7,15 @@ set(EXECUTABLE_NAME Hanoi_2015)
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/Modules/")
 
+########################################################
+# Linking & stuff
+#########################################################
+
+include_directories(./include)
+file(GLOB Cepepes ./cepepe/*.cpp)
+
+add_executable(${EXECUTABLE_NAME} main.cpp ${Cepepes})
+
 
 #########################################################
 # FIND OPENGL
@@ -29,12 +38,4 @@ if(SFML_FOUND)
     include_directories(${SFML_INCLUDE_DIR})
     target_link_libraries(${EXECUTABLE_NAME} ${SFML_LIBRARIES})
 endif()
-########################################################
-# Linking & stuff
-#########################################################
-
-include_directories(./include)
-file(GLOB Cepepes ./cepepe/*.cpp)
-
-add_executable(Hanoi_2015 main.cpp ${Cepepes})
 
