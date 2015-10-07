@@ -8,6 +8,7 @@
 #include <cmath>
 
 #include "Point.h"
+#include "Droite.h"
 #include "Matrix.h"
 
 
@@ -28,9 +29,9 @@ namespace nsHanoi
         //         /:      /|
         //        / :     / |             Z |
         //       E-------F  |               |
-        //       |  D- - |- C               |_______ X
+        //       |  D- - |- C               |_______ Y
         //       | /     | /               /
-        //       |/      |/             Y /
+        //       |/      |/             X /
         //       A-------B
 
         //Param : 4 points, ceux présents sur le cube ci-dessus
