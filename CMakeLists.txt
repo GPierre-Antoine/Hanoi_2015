@@ -13,7 +13,7 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/Modules/")
 include_directories(./include)
 file(GLOB Cepepes ./cepepe/*.cpp)
 
-add_executable(${EXECUTABLE_NAME} main.cpp ${Cepepes})
+add_executable(${EXECUTABLE_NAME} cepepe/main.cpp ${Cepepes})
 
 
 #########################################################

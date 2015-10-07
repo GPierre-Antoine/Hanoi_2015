@@ -4,8 +4,13 @@
 //
 
 #include "HanoiCuboid.h"
+#include <SFML/OpenGL.hpp>
+#include <GL/glu.h>
 
 #define HAN nsHanoi::HanoiCuboid
+
+
+
 
 HAN::HanoiCuboid(const HanoiPoint &A, const HanoiPoint &B,
                  const HanoiPoint &D, const HanoiPoint &E)
@@ -86,6 +91,62 @@ void HAN::ApplyTransformation(const nsHanoi::HanoiMatrix &Transformation) noexce
 
     }
 
+}
+
+void HAN::Affichage(HanoiCuboid &Cube){
+    glMatrixMode( GL_PROJECTION );
+    glLoadIdentity();
+    gluPerspective(70,(double)640/480,1,1000);
+    glEnable(GL_DEPTH_TEST);
+
+    glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
+
+    glMatrixMode( GL_MODELVIEW );
+    glLoadIdentity( );
+
+    gluLookAt(3,4,2,0,0,0,0,0,1);
+
+
+
+    glBegin(GL_QUADS);
+
+    glColor3ub(255, 0, 0); //face ABFE
+    glVertex3d(1, 1, 1);
+    glVertex3d(1, 1, -1);
+    glVertex3d(-1, 1, -1);
+    glVertex3d(-1, 1, 1);
+
+    glColor3ub(0, 255, 0); //face ABCD
+    glVertex3d(1, -1, 1);
+    glVertex3d(1, -1, -1);
+    glVertex3d(1, 1, -1);
+    glVertex3d(1, 1, 1);
+
+    glColor3ub(0, 0, 255); //face FGCB
+    glVertex3d(-1, -1, 1);
+    glVertex3d(-1, -1, -1);
+    glVertex3d(1, -1, -1);
+    glVertex3d(1, -1, 1);
+
+    glColor3ub(255, 255, 0); //face EHDA
+    glVertex3d(-1, 1, 1);
+    glVertex3d(-1, 1, -1);
+    glVertex3d(-1, -1, -1);
+    glVertex3d(-1, -1, 1);
+
+    glColor3ub(0, 255, 255); //face HGCD
+    glVertex3d(1, 1, -1);
+    glVertex3d(1, -1, -1);
+    glVertex3d(-1, -1, -1);
+    glVertex3d(-1, 1, -1);
+
+    glColor3ub(255, 0, 255); //face HGFE
+    glVertex3d(1, -1, 1);
+    glVertex3d(1, 1, 1);
+    glVertex3d(-1, 1, 1);
+    glVertex3d(-1, -1, 1);
+
+    glEnd();
 }
 
 #undef P
