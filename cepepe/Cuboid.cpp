@@ -1,5 +1,5 @@
 //
-// Cuboid.cpp
+// HanoiCuboid.cpp
 // Created by j14003626 on 18/09/15.
 //
 
@@ -58,7 +58,6 @@ void HAN::Move(float XTranslation, float YTranslation, float ZTranslation) noexc
 
     //Définition de la matrice Transformation
     nsHanoi::Matrix Transformation;
-
     Transformation.SetLine(0, 1, 0, 0, XTranslation);
     Transformation.SetLine(1, 0, 1, 0, YTranslation);
     Transformation.SetLine(2, 0, 0, 1, ZTranslation);
