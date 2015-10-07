@@ -45,7 +45,7 @@ void nsHanoi::RessourceManager::Initialize_All_Cubes () noexcept
 
 
     vect.reserve(9);
-    vect.push_back (Cube(new Cuboid(A,B,D,E)));
+    vect.push_back (Cube(new Cuboid(A,B,D,E),0));//index 0, does not matter
 
     //tiges
     for (unsigned i (0);i< number_of_pikes;++i)
@@ -56,7 +56,7 @@ void nsHanoi::RessourceManager::Initialize_All_Cubes () noexcept
         E = Point((2*offset + biggest_disk) / 2 + half, (i * (2*offset + biggest_disk)) * (2*offset + biggest_disk) / 2 - half,
                   base_height + (number_of_disks * disk_height));
 
-        vect.push_back(Cube(new Cuboid(A, B, D, E)));
+        vect.push_back(Cube(new Cuboid(A, B, D, E),0));//index 0, does not matter
     }
 
     //disks
@@ -70,7 +70,8 @@ void nsHanoi::RessourceManager::Initialize_All_Cubes () noexcept
                  base_height + i * disk_height);
         Point E_(a,a,base_height + (i + 1) * disk_height);
 
-        vect.push_back(Cube(new Cuboid(A_, B_, D_, E_)));
+        vect.push_back(Cube(new Cuboid(A_, B_, D_, E_),i +1));
+        //index 1 to number_of_disks +1.
 
     }
 }

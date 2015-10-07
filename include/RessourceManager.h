@@ -12,7 +12,7 @@
 #include "Cuboid.h"
 
 
-typedef std::unique_ptr<nsHanoi::Cuboid> Cube;
+typedef std::pair<std::unique_ptr<nsHanoi::Cuboid>, unsigned char> Cube;
 
 
 namespace nsHanoi
