@@ -16,7 +16,7 @@ HAN::Cuboid(const Point &A, const Point &B,
     //B
     SetPoint(1, B.X(), B.Y(), B.Z(), 1.0);
 
-    //CX = BX; CY = BY; CZ = DZ
+    //C
     SetPoint(2, D.X(), B.Y(), D.Z(), 1.0);
 
     //D
@@ -25,13 +25,13 @@ HAN::Cuboid(const Point &A, const Point &B,
     //E
     SetPoint(4, E.X(), E.Y(), E.Z(), 1.0);
 
-    //FX = BX; FY = EY; FZ = BZ
+    //F
     SetPoint(5, B.X(), B.Y(), E.Z(), 1.0);
 
-    //GX = BX; GY = EY; GZ = DZ
+    //G
     SetPoint(6, D.X(), B.Y(), E.Z(), 1.0);
 
-    //HX = AX; HY = EY; HZ = DZ
+    //H
     SetPoint(7, D.X(), A.Y(), E.Z(), 1.0);
 }
 
