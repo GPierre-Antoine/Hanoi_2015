@@ -4,7 +4,16 @@
 
 #pragma once
 
-class Droite
+#include "Point.h"
+
+namespace nsHanoi
 {
-    int a;
-};
+    class Droite
+    {
+    public:
+        Point P1;
+        Point P2;
+
+        Droite (const Point & P1, const Point & P2) noexcept;
+    };
+}

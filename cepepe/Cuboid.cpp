@@ -99,3 +99,5 @@ bool HAN::operator==(const Cuboid &Pave) const noexcept
                 return false;
     return true;
 }
+
+#undef HAN

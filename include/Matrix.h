@@ -8,10 +8,9 @@ namespace nsHanoi
 {
     class Matrix
     {
-    private:
+    public:
         float m_M[4][4];
 
-    public:
         void SetLine(unsigned Line, float A, float B, float C, float D) noexcept;
     };
 }
