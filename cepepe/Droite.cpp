@@ -3,7 +3,6 @@
 //
 
 #include "Droite.h"
-#include "Point.h"
 
 #define HAN nsHanoi::Droite
 

@@ -1,8 +1,8 @@
 //
 // HanoiCuboid.cpp
-// Created by j14003626 on 18/09/15.
 //
 
+#include <Droite.h>
 #include "Cuboid.h"
 
 #define HAN nsHanoi::Cuboid
@@ -16,8 +16,8 @@ HAN::Cuboid(const Point &A, const Point &B,
     //B
     SetPoint(1, B.X(), B.Y(), B.Z(), 1.0);
 
-    //CX = BX; CY = BY; CZ = DZ
-    SetPoint(2, B.X(), B.Y(), D.Z(), 1.0);
+    //C
+    SetPoint(2, D.X(), B.Y(), D.Z(), 1.0);
 
     //D
     SetPoint(3, D.X(), D.Y(), D.Z(), 1.0);
@@ -25,14 +25,14 @@ HAN::Cuboid(const Point &A, const Point &B,
     //E
     SetPoint(4, E.X(), E.Y(), E.Z(), 1.0);
 
-    //FX = BX; FY = EY; FZ = BZ
-    SetPoint(5, B.X(), E.Y(), B.Z(), 1.0);
+    //F
+    SetPoint(5, B.X(), B.Y(), E.Z(), 1.0);
 
-    //GX = BX; GY = EY; GZ = DZ
-    SetPoint(6, B.X(), E.Y(), D.Z(), 1.0);
+    //G
+    SetPoint(6, D.X(), B.Y(), E.Z(), 1.0);
 
-    //HX = AX; HY = EY; HZ = DZ
-    SetPoint(7, A.X(), E.Y(), D.Z(), 1.0);
+    //H
+    SetPoint(7, D.X(), A.Y(), E.Z(), 1.0);
 }
 
 
@@ -90,6 +90,11 @@ void HAN::ApplyTransformation(const nsHanoi::Matrix &Transformation) noexcept
 
 #undef P
 #undef T
+
+void HAN::Rotate (const nsHanoi::Droite & Axe, float AngleRadian) noexcept
+{
+
+}
 
 bool HAN::operator==(const Cuboid &Pave) const noexcept
 {
