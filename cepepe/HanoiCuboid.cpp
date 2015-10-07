@@ -58,9 +58,9 @@ void HAN::Move(float XTranslation, float YTranslation, float ZTranslation) noexc
 
     //Définition de la matrice Transformation
     nsHanoi::HanoiMatrix Transformation;
-    Transformation.SetLine(0, 1, 0, 0, XTranslation);
-    Transformation.SetLine(1, 0, 1, 0, YTranslation);
-    Transformation.SetLine(2, 0, 0, 1, ZTranslation);
+    Transformation.SetLine(0, 1, 0, 0, XTranslation) ;
+    Transformation.SetLine(1, 0, 1, 0, YTranslation) ;
+    Transformation.SetLine(2, 0, 0, 1, ZTranslation) ;
     Transformation.SetLine(3, 0, 0, 0, 1);
 
     ApplyTransformation(Transformation);
