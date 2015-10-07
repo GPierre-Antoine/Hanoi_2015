@@ -6,10 +6,12 @@
 
 namespace nsHanoi
 {
-    struct HanoiMatrix
+    class Matrix
     {
+    private:
         float m_M[4][4];
 
+    public:
         void SetLine(unsigned Line, float A, float B, float C, float D) noexcept;
     };
 }

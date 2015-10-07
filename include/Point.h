@@ -1,13 +1,12 @@
 //
-// HanoiPoint.h
-// Created by j14003626 on 18/09/15.
+// Point.h
 //
 
 #pragma once
 
 namespace nsHanoi
 {
-    class HanoiPoint
+    class Point
     {
     private:
 
@@ -16,7 +15,7 @@ namespace nsHanoi
         float m_Z;
 
     public:
-        HanoiPoint(float m_X, float m_Y, float m_Z);
+        Point(float m_X, float m_Y, float m_Z);
 
         float X() const;
 

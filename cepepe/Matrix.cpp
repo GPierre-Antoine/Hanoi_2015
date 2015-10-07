@@ -2,9 +2,9 @@
 // Created by j14003626 on 21/09/15.
 //
 
-#include "HanoiMatrix.h"
+#include "Matrix.h"
 
-#define MAT nsHanoi::HanoiMatrix
+#define MAT nsHanoi::Matrix
 
 void MAT::SetLine(unsigned Line, float A, float B, float C, float D) noexcept
 {
