@@ -1,6 +1,5 @@
 //
 // Point.cpp
-// Created by j14003626 on 18/09/15.
 //
 
 #include "Point.h"

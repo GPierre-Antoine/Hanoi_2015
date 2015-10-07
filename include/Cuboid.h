@@ -1,6 +1,5 @@
 //
 // HanoiCuboid.h
-// Created by j14003626 on 18/09/15
 //
 
 #pragma once
@@ -42,7 +41,7 @@ namespace nsHanoi
 
         //Param :
         //Desc :
-        //void Rotate (const CDroite)
+        void Rotate (const Droite & Axe, )
 
         //Param : Matrice 4x4 de transformation
         //Desc : effectue la multiplication matricielle (avec $Transformation) pour chaque point du pave
