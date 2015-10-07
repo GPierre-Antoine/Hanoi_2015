@@ -2,6 +2,7 @@
 // HanoiCuboid.cpp
 //
 
+#include <Droite.h>
 #include "Cuboid.h"
 
 #define HAN nsHanoi::Cuboid
@@ -89,6 +90,11 @@ void HAN::ApplyTransformation(const nsHanoi::Matrix &Transformation) noexcept
 
 #undef P
 #undef T
+
+void HAN::Rotate (const nsHanoi::Droite & Axe, float AngleRadian) noexcept
+{
+
+}
 
 bool HAN::operator==(const Cuboid &Pave) const noexcept
 {

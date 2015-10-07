@@ -5,9 +5,11 @@
 #pragma once
 
 #include <vector>
+#include <cmath>
 
 #include "Point.h"
 #include "Matrix.h"
+
 
 namespace nsHanoi
 {
@@ -24,11 +26,11 @@ namespace nsHanoi
     public:
         //          H-------G
         //         /:      /|
-        //        / :     / |             Y |
+        //        / :     / |             Z |
         //       E-------F  |               |
         //       |  D- - |- C               |_______ X
         //       | /     | /               /
-        //       |/      |/             Z /
+        //       |/      |/             Y /
         //       A-------B
 
         //Param : 4 points, ceux présents sur le cube ci-dessus
@@ -39,9 +41,9 @@ namespace nsHanoi
         //Desc : applique la translation sur le pave
         void Move(float XTranslation, float YTranslation, float ZTranslation) noexcept;
 
-        //Param :
-        //Desc :
-        void Rotate (const Droite & Axe, )
+        //Param : Axe de rotation, Angle en radian
+        //Desc : Effectue une rotation du cube autout de l'axe de rotation
+        void Rotate (const Droite & Axe, float AngleRadian) noexcept;
 
         //Param : Matrice 4x4 de transformation
         //Desc : effectue la multiplication matricielle (avec $Transformation) pour chaque point du pave
