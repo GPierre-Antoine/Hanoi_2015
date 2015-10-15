@@ -135,11 +135,6 @@ void HAN::ApplyTransformation(const nsHanoi::Matrix &Transformation) noexcept
 #undef P
 #undef T
 
-void HAN::Rotate (const nsHanoi::Droite & Axe, float Angle) noexcept
-{
-
-}
-
 bool HAN::operator==(const Cube &Pave) const noexcept
 {
     for (unsigned i = 0; i < 8; ++i)
@@ -149,9 +144,5 @@ bool HAN::operator==(const Cube &Pave) const noexcept
     return true;
 }
 
-void HAN::Afficher() const noexcept
-{
-
-}
 
 #undef HAN
