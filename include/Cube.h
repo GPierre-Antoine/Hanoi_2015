@@ -14,6 +14,12 @@
 
 namespace nsHanoi
 {
+    typedef char unsigned byte_t;
+
+    const byte_t AXE_X = 0;
+    const byte_t AXE_Y = 1;
+    const byte_t AXE_Z = 2;
+
     class Cube
     {
     private:
@@ -23,6 +29,9 @@ namespace nsHanoi
 
         //Fonction privee utilisee seulement dans notre classe pour simplifier expressions
         void SetPoint(unsigned Case, float X, float Y, float Z, float W) noexcept;
+
+        //Rotation autour d'un axe donné
+        void AxeRotate (const byte_t Axe, double Rotation) noexcept;
 
     public:
         //          H-------G
@@ -53,6 +62,8 @@ namespace nsHanoi
         //Param : Un autre pave
         //Desc : Compare deux cubes pour voir si leur position est equivalente
         bool operator == (const Cube & Pave) const noexcept;
+
+        void Rotate (const byte_t Axe, const Point & Origine, double Rotation) noexcept;
 
     }; // class Cube
 }

@@ -35,7 +35,6 @@ HAN::Cube(const Point &A, const Point &B,
     SetPoint(7, D.X(), A.Y(), E.Z(), 1.0);
 }
 
-
 void HAN::SetPoint(unsigned Case, float X, float Y, float Z, float W) noexcept
 {
     if (Case >= 0 || Case <= 7)
@@ -46,6 +45,51 @@ void HAN::SetPoint(unsigned Case, float X, float Y, float Z, float W) noexcept
         m_VPoints[Case][3] = W;
     }
 }
+
+void HAN::AxeRotate (const byte_t Axe, double Rotation) noexcept
+{
+    nsHanoi::Matrix Transformation;
+
+    switch (Axe)
+    {
+        case AXE_X:
+            Transformation.SetLine(0, 1, 0, 0, 0);
+            Transformation.SetLine(1, 0, cos(Rotation), -sin(Rotation), 0);
+            Transformation.SetLine(2, 0, sin(Rotation), cos(Rotation), 0);
+            Transformation.SetLine(3, 0, 0, 0, 1);
+            break;
+        case AXE_Y:
+            Transformation.SetLine(0, cos(Rotation), 0, sin(Rotation), 0);
+            Transformation.SetLine(1, 0, 1, 0, 0);
+            Transformation.SetLine(2, -sin(Rotation), 0, cos(Rotation), 0);
+            Transformation.SetLine(3, 0, 0, 0, 1);
+            break;
+        case AXE_Z:
+            Transformation.SetLine(0, cos(Rotation), -sin(Rotation), 0, 0);
+            Transformation.SetLine(1, sin(Rotation), cos(Rotation), 0, 0);
+            Transformation.SetLine(2, 0, 0, 1, 0);
+            Transformation.SetLine(3, 0, 0, 0, 1);
+            break;
+        default:
+            break;
+    }
+
+    ApplyTransformation(Transformation);
+
+} // AxeRotate ()
+
+void HAN::Rotate (const byte_t Axe, const Point & Origine, double Rotation) noexcept
+{
+    // On amene le cube a l'origine
+    Move (-Origine.X(), -Origine.Y(), -Origine.Z());
+
+    // Rotation par rapport a l'axe donne
+    AxeRotate (Axe, Rotation);
+
+    // On ramene le cube a sa position initiale
+    Move (Origine.X(), Origine.Y(), Origine.Z());
+
+} // Rotate ()
 
 void HAN::Move(float XTranslation, float YTranslation, float ZTranslation) noexcept
 {
@@ -91,7 +135,7 @@ void HAN::ApplyTransformation(const nsHanoi::Matrix &Transformation) noexcept
 #undef P
 #undef T
 
-void HAN::Rotate (const nsHanoi::Droite & Axe, float AngleRadian) noexcept
+void HAN::Rotate (const nsHanoi::Droite & Axe, float Angle) noexcept
 {
 
 }
