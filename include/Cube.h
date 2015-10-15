@@ -67,10 +67,12 @@ namespace nsHanoi
         
         // Param : Axe de rotation, Origine : a partir de quelle origine on tourne, Rotation
         // Desc : Applique une rotation autour de l'axe donne, passant par Origine
-
         void Rotate (const byte_t Axe, const Point & Origine, double Rotation) noexcept;
         
         void Affichage () const noexcept;
+
+        // Renvoit le point au centre du cube
+        Point GetCenter () noexcept;
     
     }; // class Cube
 }

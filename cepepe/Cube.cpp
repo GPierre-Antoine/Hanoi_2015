@@ -150,4 +150,20 @@ void HAN::Affichage() const noexcept
 
 }
 
+Point HAN::GetCenter () noexcept
+{
+    // (Dx + Ax) / 2
+    float X = (m_VPoints[3][0] + m_VPoints[0][0]) / 2;
+
+    // (Dy + Cy) / 2
+    float Y = (m_VPoints[3][0] + m_VPoints[2][0]) / 2;
+
+    // (Dz + Hz) / 2
+    float Z = (m_VPoints[3][0] + m_VPoints[7][0]) / 2;
+
+    return Point (X, Y, Z);
+
+}
+
+
 #undef HAN
