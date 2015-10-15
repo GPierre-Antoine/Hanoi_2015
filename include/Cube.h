@@ -23,6 +23,7 @@ namespace nsHanoi
     class Cube
     {
     private:
+
         float m_VPoints[8][4];
         //Tableau de points, chacun correspondant a un sommet du pave
         //8 Vecteurs : (x, y, z, w)
@@ -34,6 +35,7 @@ namespace nsHanoi
         void AxeRotate (const byte_t Axe, double Rotation) noexcept;
 
     public:
+
         //          H-------G
         //         /:      /|
         //        / :     / |             Z |
