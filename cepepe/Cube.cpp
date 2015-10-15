@@ -105,4 +105,9 @@ bool HAN::operator==(const Cube &Pave) const noexcept
     return true;
 }
 
+void HAN::Afficher() const noexcept
+{
+
+}
+
 #undef HAN

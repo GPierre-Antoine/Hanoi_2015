@@ -54,5 +54,7 @@ namespace nsHanoi
         //Desc : Compare deux cubes pour voir si leur position est equivalente
         bool operator == (const Cube & Pave) const noexcept;
 
+        void Afficher () const noexcept;
+
     }; // class Cube
 }
