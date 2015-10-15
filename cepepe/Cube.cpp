@@ -1,5 +1,5 @@
 //
-// HanoiCuboid.cpp
+// HanoiCube.cpp
 //
 
 #include <Droite.h>
@@ -96,7 +96,7 @@ void HAN::Rotate (const nsHanoi::Droite & Axe, float AngleRadian) noexcept
 
 }
 
-bool HAN::operator==(const Cuboid &Pave) const noexcept
+bool HAN::operator==(const Cube &Pave) const noexcept
 {
     for (unsigned i = 0; i < 8; ++i)
         for (unsigned j = 0; j < 3; ++j)
