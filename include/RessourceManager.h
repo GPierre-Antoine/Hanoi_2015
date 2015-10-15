@@ -9,7 +9,7 @@
 #include <memory>
 #include <vector>
 
-#include "Cuboid.h"
+#include "Cube.h"
 
 
 typedef std::pair<std::unique_ptr<nsHanoi::Cuboid>, unsigned char> Cube;
