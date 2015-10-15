@@ -5,7 +5,7 @@
 #include <Droite.h>
 #include "Cube.h"
 
-#define HAN nsHanoi::Cuboid
+#define HAN nsHanoi::Cube
 
 HAN::Cube(const Point &A, const Point &B,
                  const Point &D, const Point &E)
