@@ -2,10 +2,10 @@
 // main.cpp
 //
 
-#include "Cuboid.h"
 #include <SFML/Graphics.hpp>
 #include <SFML/OpenGL.hpp>
 #include <GL/GLU.h>
+#include <Cube.h>
 
 
 using namespace nsHanoi;
