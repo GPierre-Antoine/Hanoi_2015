@@ -1,5 +1,5 @@
 //
-// HanoiCube.cpp
+// Cube.cpp
 //
 
 #include <Droite.h>

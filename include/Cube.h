@@ -1,5 +1,5 @@
 //
-// HanoiCuboid.h
+// Cube.h
 //
 
 #pragma once
@@ -10,7 +10,6 @@
 #include "Point.h"
 #include "Droite.h"
 #include "Matrix.h"
-
 
 namespace nsHanoi
 {
@@ -63,6 +62,8 @@ namespace nsHanoi
         //Desc : Compare deux cubes pour voir si leur position est equivalente
         bool operator == (const Cube & Pave) const noexcept;
 
+        // Param : Axe de rotation, Origine : a partir de quelle origine on tourne, Rotation
+        // Desc : Applique une rotation autour de l'axe donne, passant par Origine
         void Rotate (const byte_t Axe, const Point & Origine, double Rotation) noexcept;
 
     }; // class Cube
