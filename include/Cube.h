@@ -14,17 +14,28 @@
 
 namespace nsHanoi
 {
+    typedef char unsigned byte_t;
+
+    const byte_t AXE_X = 0;
+    const byte_t AXE_Y = 1;
+    const byte_t AXE_Z = 2;
+    
     class Cube
     {
     private:
+
         float m_VPoints[8][4];
         //Tableau de points, chacun correspondant a un sommet du pave
         //8 Vecteurs : (x, y, z, w)
 
         //Fonction privee utilisee seulement dans notre classe pour simplifier expressions
         void SetPoint(unsigned Case, float X, float Y, float Z, float W) noexcept;
+        
+        //Rotation autour d'un axe donné
+        void AxeRotate (const byte_t Axe, double Rotation) noexcept;
 
     public:
+
         //          H-------G
         //         /:      /|
         //        / :     / |             Z |
@@ -53,8 +64,15 @@ namespace nsHanoi
         //Param : Un autre pave
         //Desc : Compare deux cubes pour voir si leur position est equivalente
         bool operator == (const Cube & Pave) const noexcept;
+        
+        // Param : Axe de rotation, Origine : a partir de quelle origine on tourne, Rotation
+        // Desc : Applique une rotation autour de l'axe donne, passant par Origine
+        void Rotate (const byte_t Axe, const Point & Origine, double Rotation) noexcept;
+        
+        void Affichage () const noexcept;
 
-        void Afficher () const noexcept;
-
+        // Renvoit le point au centre du cube
+        Point GetCenter () noexcept;
+    
     }; // class Cube
 }
