@@ -8,11 +8,11 @@
 
 #include <memory>
 #include <vector>
-
+#include <utility>
 #include "Cube.h"
 
 
-typedef std::pair<std::unique_ptr<nsHanoi::Cuboid>, unsigned char> Cube;
+typedef std::pair<std::unique_ptr<nsHanoi::Cube>, unsigned char> tCube;
 
 
 namespace nsHanoi
@@ -21,13 +21,13 @@ namespace nsHanoi
     {
     private:
         RessourceManager ();
-        std::vector<Cube> vect;
+        std::vector<tCube> vect;
         RessourceManager operator = (const RessourceManager &) = delete;
         RessourceManager (const RessourceManager &) = delete;
         void Initialize_All_Cubes () noexcept;
     public:
         RessourceManager & getInstance () noexcept;
-        void add(const Cuboid & elem) noexcept;
+        void add(const Cube & elem) noexcept;
         void RenderAll() const noexcept;
 
     };

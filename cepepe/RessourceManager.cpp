@@ -4,11 +4,13 @@
 
 #include "RessourceManager.h"
 
+#define make_cube(a,b) make_pair(std::unique_ptr<nsHanoi::Cube>(a),b)
+
 using namespace std;
 using namespace nsHanoi;
 
 
-nsHanoi::RessourceManager ()
+nsHanoi::RessourceManager::RessourceManager ()
 {
 }
 
@@ -43,9 +45,8 @@ void nsHanoi::RessourceManager::Initialize_All_Cubes () noexcept
     Point D(0,(2*offset + biggest_disk) * number_of_pikes,0);
     Point E(0,0,base_height);
 
-
     vect.reserve(9);
-    vect.push_back (Cube(new Cube(A,B,D,E),0));//index 0, does not matter
+    vect.push_back ( make_cube (new Cube(A,B,D,E),0)); //index 0, does not matter
 
     //tiges
     for (unsigned i (0);i< number_of_pikes;++i)
@@ -56,11 +57,11 @@ void nsHanoi::RessourceManager::Initialize_All_Cubes () noexcept
         E = Point((2*offset + biggest_disk) / 2 + half, (i * (2*offset + biggest_disk)) * (2*offset + biggest_disk) / 2 - half,
                   base_height + (number_of_disks * disk_height));
 
-        vect.push_back(Cube(new Cube(A, B, D, E),0));//index 0, does not matter
+        vect.push_back( make_cube (new Cube(A, B, D, E),0));//index 0, does not matter
     }
 
     //disks
-    for (unsigned i (0);i<number_of_disks;++i)
+    for (unsigned char i (0);i<number_of_disks;++i)
     {
         float a = offset + i * delta_decrease;
         Point A_(a,a,base_height + i * disk_height);
@@ -70,7 +71,7 @@ void nsHanoi::RessourceManager::Initialize_All_Cubes () noexcept
                  base_height + i * disk_height);
         Point E_(a,a,base_height + (i + 1) * disk_height);
 
-        vect.push_back(Cube(new Cube(A_, B_, D_, E_),i +1));
+        vect.push_back( make_cube (new Cube(A_, B_, D_, E_),i + 1));
         //index 1 to number_of_disks +1.
 
     }
@@ -79,7 +80,9 @@ void nsHanoi::RessourceManager::Initialize_All_Cubes () noexcept
 void nsHanoi::RessourceManager::RenderAll() const noexcept
 {
     /** /
-    for (Cube i : vect)
+    for  make_cube  i : vect)
         *i.Afficher();
     /**/
 }
+
+#undef make_cube
