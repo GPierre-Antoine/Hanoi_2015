@@ -62,9 +62,13 @@ namespace nsHanoi
         //Desc : Compare deux cubes pour voir si leur position est equivalente
         bool operator == (const Cube & Pave) const noexcept;
 
+<<<<<<< HEAD
         // Param : Axe de rotation, Origine : a partir de quelle origine on tourne, Rotation
         // Desc : Applique une rotation autour de l'axe donne, passant par Origine
         void Rotate (const byte_t Axe, const Point & Origine, double Rotation) noexcept;
+=======
+        void Afficher () const noexcept;
+>>>>>>> origin/maths
 
     }; // class Cube
 }

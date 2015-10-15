@@ -79,9 +79,9 @@ void nsHanoi::RessourceManager::Initialize_All_Cubes () noexcept
 
 void nsHanoi::RessourceManager::RenderAll() const noexcept
 {
-    /** /
-    for  make_cube  i : vect)
-        *i.Afficher();
+    /**/
+    for  (tCube  i : vect)
+        i.first->Afficher();
     /**/
 }
 
