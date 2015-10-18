@@ -17,25 +17,27 @@ file(GLOB Cepepes ./cepepe/*.cpp)
 add_executable(Hanoi_2015 main.cpp ${Cepepes})
 
 
+if (WIN32)
+    add_definitions(-DGRAPHIC_ENABLED)
+    #########################################################
+    # FIND OPENGL
+    #########################################################
+    find_package(OpenGL REQUIRED)
+    if (OPENGL_FOUND)
+        include_directories(${OpenGL_INCLUDE_DIRS})
+        link_directories(${OpenGL_LIBRARY_DIRS})
+        add_definitions(${OpenGL_DEFINITIONS})
+        target_link_libraries(${EXECUTABLE_NAME} ${OPENGL_LIBRARIES})
+        message(ERROR " OPENGL not found!")
+    endif (OPENGL_FOUND)
 
-#########################################################
-# FIND OPENGL
-#########################################################
-find_package(OpenGL REQUIRED)
-if (OPENGL_FOUND)
-    include_directories(${OpenGL_INCLUDE_DIRS})
-    link_directories(${OpenGL_LIBRARY_DIRS})
-    add_definitions(${OpenGL_DEFINITIONS})
-    target_link_libraries(${EXECUTABLE_NAME} ${OPENGL_LIBRARIES})
-    message(ERROR " OPENGL not found!")
-endif (OPENGL_FOUND)
 
 
+    set(SFML_ROOT C:/lib/SFML-2.3.2)
+    find_package(SFML 2 REQUIRED audio graphics network window system)
 
-set(SFML_ROOT D:/SFML2/)
-find_package(SFML 2 REQUIRED audio graphics network window system)
-
-if(SFML_FOUND)
-    include_directories(${SFML_INCLUDE_DIR})
-   target_link_libraries(${EXECUTABLE_NAME} ${SFML_LIBRARIES})
-endif()
+    if(SFML_FOUND)
+        include_directories(${SFML_INCLUDE_DIR})
+       target_link_libraries(${EXECUTABLE_NAME} ${SFML_LIBRARIES})
+    endif()
+endif(WIN32)
