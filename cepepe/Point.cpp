@@ -1,14 +1,14 @@
 //
-// HanoiPoint.cpp
+// Point.cpp
 // Created by j14003626 on 18/09/15.
 //
 
-#include "HanoiPoint.h"
+#include "Point.h"
 
 
-#define POINT nsHanoi::HanoiPoint
+#define POINT nsHanoi::Point
 
-POINT::HanoiPoint(float X, float Y, float Z)
+POINT::Point(float X, float Y, float Z)
         : m_X(X), m_Y(Y), m_Z(Z)
 { }
 

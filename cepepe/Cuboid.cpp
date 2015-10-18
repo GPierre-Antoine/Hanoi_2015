@@ -2,7 +2,7 @@
 // Cuboid.cpp
 // Created by j14003626 on 18/09/15.
 //
-
+/*
 #include "Cuboid.h"
 #include <SFML/OpenGL.hpp>
 #include <GL/GLU.h>
@@ -150,3 +150,5 @@ bool HAN::operator==(const Cuboid &Pave) const noexcept
                 return false;
     return true;
 }
+
+ */

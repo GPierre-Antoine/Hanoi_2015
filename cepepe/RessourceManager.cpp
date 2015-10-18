@@ -81,7 +81,7 @@ void nsHanoi::RessourceManager::RenderAll() const noexcept
 {
     /**/
     for  (const tCube & i : vect)
-        i.first->Afficher();
+        i.first->Affichage();
     /**/
 }
 
