@@ -6,6 +6,7 @@
 
 #include <vector>
 #include <cmath>
+#include <SFML/Graphics.hpp>
 
 #include "Point.h"
 #include "Droite.h"
@@ -19,10 +20,11 @@ namespace nsHanoi
     const byte_t AXE_X = 0;
     const byte_t AXE_Y = 1;
     const byte_t AXE_Z = 2;
-    
+
     class Cube
     {
     private:
+        GLuint texture = 0;
 
         float m_VPoints[8][4];
         //Tableau de points, chacun correspondant a un sommet du pave

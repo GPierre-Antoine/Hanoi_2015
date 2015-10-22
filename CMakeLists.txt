@@ -62,5 +62,4 @@ endif()
         include_directories(${SFML_INCLUDE_DIR})
        target_link_libraries(${EXECUTABLE_NAME} ${SFML_LIBRARIES})
     endif()
->>>>>>> origin/master
 endif(WIN32)

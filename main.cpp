@@ -23,7 +23,7 @@ int main()
 
     rsm.Initialize_All_Cubes();
 
-    sf::Window window(sf::VideoMode(800, 600), "OpenGL", sf::Style::Default, sf::ContextSettings(32));
+    sf::RenderWindow window(sf::VideoMode(800, 600), "OpenGL", sf::Style::Default, sf::ContextSettings(32));
     window.setVerticalSyncEnabled(true);
 
     Cube Pave = Cube(Point(6, 5, 5), Point(6, 6, 5),
@@ -63,9 +63,9 @@ int main()
         glMatrixMode(GL_MODELVIEW);
         glLoadIdentity();
 
-        gluLookAt(0,20,20,20,0,0,0,0,1);
+        //gluLookAt(0,20,20,20,0,0,0,0,1);
 
-
+        rsm.setView();
         //Base.Affichage();
         //Pave.Affichage();
 

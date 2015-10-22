@@ -7,11 +7,8 @@
 #include "Cube.h"
 
 #ifdef GRENABLED
-    #include <SFML/OpenGL.hpp>
-    #include <GL/GLU.h>
-#endif
 
-#include "Point.h"
+#endif
 
 #define HAN nsHanoi::Cube
 
@@ -41,6 +38,17 @@ HAN::Cube(const Point &A, const Point &B,
 
     //H
     SetPoint(7, D.X(), A.Y(), E.Z(), 1.0);
+
+    {
+        sf::Image image;
+        if (!image.loadFromFile("Dessus.png"))
+            exit(EXIT_FAILURE);
+        glGenTextures(1, &texture);
+        glBindTexture(GL_TEXTURE_2D, texture);
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, image.getSize().x, image.getSize().y, 0, GL_RGBA, GL_UNSIGNED_BYTE, image.getPixelsPtr());
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    }
 }
 
 void HAN::SetPoint(unsigned Case, float X, float Y, float Z, float W) noexcept
@@ -158,42 +166,52 @@ void HAN::Affichage() const noexcept
 #ifdef GRENABLED
     glBegin(GL_QUADS);
 
-    glColor3ub(0, 0, 255); //face ABFE
+
+
+
+
+    glEnable(GL_TEXTURE_2D);
+    glBindTexture(GL_TEXTURE_2D, texture);
+
+    //glColor3ub(0, 0, 255); //face ABFE
     glVertex3d(m_VPoints[0][0], m_VPoints[0][1], m_VPoints[0][2]);//A
     glVertex3d(m_VPoints[1][0], m_VPoints[1][1], m_VPoints[1][2]);//B
     glVertex3d(m_VPoints[5][0], m_VPoints[5][1], m_VPoints[5][2]);//F
     glVertex3d(m_VPoints[4][0], m_VPoints[4][1], m_VPoints[4][2]);//E
 
-    glColor3ub(0, 255, 255); //face ABCD
+    //glColor3ub(0, 255, 255); //face ABCD
     glVertex3d(m_VPoints[0][0], m_VPoints[0][1], m_VPoints[0][2]);//A
     glVertex3d(m_VPoints[1][0], m_VPoints[1][1], m_VPoints[1][2]);//B
     glVertex3d(m_VPoints[2][0], m_VPoints[2][1], m_VPoints[2][2]);//C
     glVertex3d(m_VPoints[3][0], m_VPoints[3][1], m_VPoints[3][2]);//D
 
-    glColor3ub(255, 0, 255); //face FGCB
+    //glColor3ub(255, 0, 255); //face FGCB
     glVertex3d(m_VPoints[5][0], m_VPoints[5][1], m_VPoints[5][2]);//F
     glVertex3d(m_VPoints[6][0], m_VPoints[6][1], m_VPoints[6][2]);//G
     glVertex3d(m_VPoints[2][0], m_VPoints[2][1], m_VPoints[2][2]);//C
     glVertex3d(m_VPoints[1][0], m_VPoints[1][1], m_VPoints[1][2]);//B
 
-    glColor3ub(0, 255, 0); //face EHDA
+    //glColor3ub(0, 255, 0); //face EHDA
     glVertex3d(m_VPoints[4][0], m_VPoints[4][1], m_VPoints[4][2]);//E
     glVertex3d(m_VPoints[7][0], m_VPoints[7][1], m_VPoints[7][2]);//H
     glVertex3d(m_VPoints[3][0], m_VPoints[3][1], m_VPoints[3][2]);//D
     glVertex3d(m_VPoints[0][0], m_VPoints[0][1], m_VPoints[0][2]);//A
 
-    glColor3ub(255, 255, 0); //face HGCD
+    //glColor3ub(255, 255, 0); //face HGCD
     glVertex3d(m_VPoints[7][0], m_VPoints[7][1], m_VPoints[7][2]);//H
     glVertex3d(m_VPoints[6][0], m_VPoints[6][1], m_VPoints[6][2]);//G
     glVertex3d(m_VPoints[2][0], m_VPoints[2][1], m_VPoints[2][2]);//C
     glVertex3d(m_VPoints[3][0], m_VPoints[3][1], m_VPoints[3][2]);//D
 
-    glColor3ub(255, 0, 0); //face HGFE
+    //glColor3ub(255, 0, 0); //face HGFE
     glVertex3d(m_VPoints[7][0], m_VPoints[7][1], m_VPoints[7][2]);//H
     glVertex3d(m_VPoints[6][0], m_VPoints[6][1], m_VPoints[6][2]);//G
     glVertex3d(m_VPoints[5][0], m_VPoints[5][1], m_VPoints[5][2]);//F
     glVertex3d(m_VPoints[4][0], m_VPoints[4][1], m_VPoints[4][2]);//E
 
+    sf::Texture::bind(NULL);
+
+    glDeleteTextures(1, &texture);
     glEnd();
 #endif
 }
