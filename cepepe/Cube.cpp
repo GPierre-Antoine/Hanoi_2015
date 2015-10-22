@@ -3,6 +3,7 @@
 //
 
 #include <Droite.h>
+#include <GL/gl.h>
 #include "Cube.h"
 
 #ifdef GRENABLED
@@ -155,7 +156,6 @@ bool HAN::operator==(const Cube &Pave) const noexcept
 void HAN::Affichage() const noexcept
 {
 #ifdef GRENABLED
-
     glBegin(GL_QUADS);
 
     glColor3ub(0, 0, 255); //face ABFE

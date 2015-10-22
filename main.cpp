@@ -26,11 +26,7 @@ int main()
     sf::Window window(sf::VideoMode(800, 600), "OpenGL", sf::Style::Default, sf::ContextSettings(32));
     window.setVerticalSyncEnabled(true);
 
-    Cube Base = Cube (Point(18, 0, 0), Point(18, 9, 0),
-                         Point(0, 0, 0), Point(18, 0, 0.5));
-
-
-    Cube Pave = Cube (Point(6, 5, 5), Point(6, 6, 5),
+    Cube Pave = Cube(Point(6, 5, 5), Point(6, 6, 5),
                          Point(5, 5, 5), Point(6, 5, 5.5));
 
     const sf::Time timePerFrame = sf::seconds(1.f / 60.f); //60fps
