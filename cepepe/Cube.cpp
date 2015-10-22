@@ -5,6 +5,13 @@
 #include <Droite.h>
 #include "Cube.h"
 
+#ifdef GRENABLED
+    #include <SFML/OpenGL.hpp>
+    #include <GL/GLU.h>
+#endif
+
+#include "Point.h"
+
 #define HAN nsHanoi::Cube
 
 HAN::Cube(const Point &A, const Point &B,
@@ -147,10 +154,51 @@ bool HAN::operator==(const Cube &Pave) const noexcept
 
 void HAN::Affichage() const noexcept
 {
+#ifdef GRENABLED
 
+    glBegin(GL_QUADS);
+
+    glColor3ub(0, 0, 255); //face ABFE
+    glVertex3d(m_VPoints[0][0], m_VPoints[0][1], m_VPoints[0][2]);//A
+    glVertex3d(m_VPoints[1][0], m_VPoints[1][1], m_VPoints[1][2]);//B
+    glVertex3d(m_VPoints[5][0], m_VPoints[5][1], m_VPoints[5][2]);//F
+    glVertex3d(m_VPoints[4][0], m_VPoints[4][1], m_VPoints[4][2]);//E
+
+    glColor3ub(0, 255, 255); //face ABCD
+    glVertex3d(m_VPoints[0][0], m_VPoints[0][1], m_VPoints[0][2]);//A
+    glVertex3d(m_VPoints[1][0], m_VPoints[1][1], m_VPoints[1][2]);//B
+    glVertex3d(m_VPoints[2][0], m_VPoints[2][1], m_VPoints[2][2]);//C
+    glVertex3d(m_VPoints[3][0], m_VPoints[3][1], m_VPoints[3][2]);//D
+
+    glColor3ub(255, 0, 255); //face FGCB
+    glVertex3d(m_VPoints[5][0], m_VPoints[5][1], m_VPoints[5][2]);//F
+    glVertex3d(m_VPoints[6][0], m_VPoints[6][1], m_VPoints[6][2]);//G
+    glVertex3d(m_VPoints[2][0], m_VPoints[2][1], m_VPoints[2][2]);//C
+    glVertex3d(m_VPoints[1][0], m_VPoints[1][1], m_VPoints[1][2]);//B
+
+    glColor3ub(0, 255, 0); //face EHDA
+    glVertex3d(m_VPoints[4][0], m_VPoints[4][1], m_VPoints[4][2]);//E
+    glVertex3d(m_VPoints[7][0], m_VPoints[7][1], m_VPoints[7][2]);//H
+    glVertex3d(m_VPoints[3][0], m_VPoints[3][1], m_VPoints[3][2]);//D
+    glVertex3d(m_VPoints[0][0], m_VPoints[0][1], m_VPoints[0][2]);//A
+
+    glColor3ub(255, 255, 0); //face HGCD
+    glVertex3d(m_VPoints[7][0], m_VPoints[7][1], m_VPoints[7][2]);//H
+    glVertex3d(m_VPoints[6][0], m_VPoints[6][1], m_VPoints[6][2]);//G
+    glVertex3d(m_VPoints[2][0], m_VPoints[2][1], m_VPoints[2][2]);//C
+    glVertex3d(m_VPoints[3][0], m_VPoints[3][1], m_VPoints[3][2]);//D
+
+    glColor3ub(255, 0, 0); //face HGFE
+    glVertex3d(m_VPoints[7][0], m_VPoints[7][1], m_VPoints[7][2]);//H
+    glVertex3d(m_VPoints[6][0], m_VPoints[6][1], m_VPoints[6][2]);//G
+    glVertex3d(m_VPoints[5][0], m_VPoints[5][1], m_VPoints[5][2]);//F
+    glVertex3d(m_VPoints[4][0], m_VPoints[4][1], m_VPoints[4][2]);//E
+
+    glEnd();
+#endif
 }
 
-Point HAN::GetCenter () noexcept
+nsHanoi::Point HAN::GetCenter () noexcept
 {
     // (Dx + Ax) / 2
     float X = (m_VPoints[3][0] + m_VPoints[0][0]) / 2;

@@ -24,11 +24,12 @@ namespace nsHanoi
         std::vector<tCube> vect;
         RessourceManager operator = (const RessourceManager &) = delete;
         RessourceManager (const RessourceManager &) = delete;
-        void Initialize_All_Cubes () noexcept;
     public:
-        RessourceManager & getInstance () noexcept;
+        static RessourceManager & getInstance () noexcept;
         void add(const Cube & elem) noexcept;
         void RenderAll() const noexcept;
+        void Initialize_All_Cubes () noexcept;
+
 
     };
 }

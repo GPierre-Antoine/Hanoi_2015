@@ -17,7 +17,8 @@ file(GLOB Cepepes ./cepepe/*.cpp)
 add_executable(Hanoi_2015 main.cpp ${Cepepes})
 
 
-
+if (WIN32)
+    add_definitions(-DGRENABLED)
 #########################################################
 # FIND OPENGL
 #########################################################
@@ -39,3 +40,4 @@ if(SFML_FOUND)
     include_directories(${SFML_INCLUDE_DIR})
    target_link_libraries(${EXECUTABLE_NAME} ${SFML_LIBRARIES})
 endif()
+endif(WIN32)
