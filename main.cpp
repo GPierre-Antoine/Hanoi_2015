@@ -48,9 +48,12 @@ int main()
             }
             else if (event.type == sf::Event::Resized)
             {
+#ifdef GRENABLED
                 glViewport(0, 0, event.size.width, event.size.height);
+#endif
             }
         }
+#ifdef GRENABLED
         glMatrixMode( GL_PROJECTION );
         glLoadIdentity();
         gluPerspective(90,(double)640/480,1,1000);
@@ -61,7 +64,7 @@ int main()
 
         glMatrixMode(GL_MODELVIEW);
         glLoadIdentity();
-
+#endif
 
         rsm.setView();
 
