@@ -8,7 +8,7 @@
 
 void MAT::SetLine(unsigned Line, float A, float B, float C, float D) noexcept
 {
-    if (Line >= 0 || Line <= 4)
+    if (Line <= 4)
     {
         m_M[Line][0] = A;
         m_M[Line][1] = B;
