@@ -13,9 +13,7 @@ using namespace std;
 using namespace nsHanoi;
 
 
-nsHanoi::RessourceManager::RessourceManager ()
-{
-}
+nsHanoi::RessourceManager::RessourceManager () {}
 
 nsHanoi::RessourceManager & nsHanoi::RessourceManager::getInstance () noexcept
 {

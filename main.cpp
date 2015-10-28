@@ -23,7 +23,7 @@ int main()
 
     rsm.Initialize_All_Cubes();
 
-    sf::RenderWindow window(sf::VideoMode(800, 600), "OpenGL", sf::Style::Default, sf::ContextSettings(32));
+    sf::RenderWindow window(sf::VideoMode(800, 600), "xX_HanoiCube_Xx", sf::Style::Default, sf::ContextSettings(32));
     window.setVerticalSyncEnabled(true);
 
     Cube Pave = Cube(Point(6, 5, 5), Point(6, 6, 5),
@@ -55,19 +55,16 @@ int main()
         glLoadIdentity();
         gluPerspective(90,(double)640/480,1,1000);
         glEnable(GL_DEPTH_TEST);
-        //glEnable(GL_LIGHTING);
-        //glEnable(GL_LIGHT0);
+
 
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         glMatrixMode(GL_MODELVIEW);
         glLoadIdentity();
 
-        //gluLookAt(0,20,20,20,0,0,0,0,1);
 
         rsm.setView();
-        //Base.Affichage();
-        //Pave.Affichage();
+
 
         rsm.RenderAll();
 
