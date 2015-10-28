@@ -20,21 +20,21 @@ namespace nsHanoi
     class RessourceManager
     {
     private:
-        const float biggest_disk = 4.f;
-        const float offset = 1.f;
-        const int square = 1;
+        static constexpr float biggest_disk = 4.f  ;
+        static constexpr float offset = 1.f;
+        static constexpr unsigned int square = 1;
 
-        const int number_of_disks = 5;
+        static constexpr unsigned int number_of_disks = 5;
 
-        const float disk_height = 1.f;
+        static constexpr float disk_height = 1.f;
 
-        const float half = square/2;
+        static constexpr float half = square/2;
 
-        const float base_height = 1.f;
+        static constexpr float base_height = 1.f;
 
-        const int number_of_pikes = 3;
+        static constexpr unsigned int number_of_pikes = 3;
 
-        const float delta_decrease = 0.5f;
+        static constexpr float delta_decrease = 0.5f;
 
 
         RessourceManager ();
