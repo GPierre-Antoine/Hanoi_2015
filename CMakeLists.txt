@@ -22,13 +22,16 @@ if (WIN32)
     #########################################################
     # FIND OPENGL
     #########################################################
+
     find_package(OpenGL REQUIRED)
     if (OPENGL_FOUND)
+
+        message(WARNING "include_directories(${OpenGL_INCLUDE_DIRS}) \n link_directories(${OpenGL_LIBRARY_DIRS}) \n add_definitions(${OpenGL_DEFINITIONS})")
         include_directories(${OpenGL_INCLUDE_DIRS})
         link_directories(${OpenGL_LIBRARY_DIRS})
         add_definitions(${OpenGL_DEFINITIONS})
         target_link_libraries(${EXECUTABLE_NAME} ${OPENGL_LIBRARIES})
-        message(ERROR " OPENGL not found!")
+
     endif (OPENGL_FOUND)
 
 
