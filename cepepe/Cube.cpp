@@ -55,25 +55,25 @@ void HAN::SetPoint(unsigned Case, float X, float Y, float Z, float W) noexcept
 
 void HAN::AxeRotate (const byte_t Axe, double Rotation) noexcept
 {
-    nsHanoi::Matrix Transformation;
+    nsHanoi::Matrix Transformation = Matrix();
 
     switch (Axe)
     {
         case AXE_X:
             Transformation.SetLine(0, 1, 0, 0, 0);
-            Transformation.SetLine(1, 0, cos(Rotation), -sin(Rotation), 0);
-            Transformation.SetLine(2, 0, sin(Rotation), cos(Rotation), 0);
+            Transformation.SetLine(1, 0, float(cos(Rotation)), float(-sin(Rotation)), 0);
+            Transformation.SetLine(2, 0, float(sin(Rotation)), float(cos(Rotation)), 0);
             Transformation.SetLine(3, 0, 0, 0, 1);
             break;
         case AXE_Y:
-            Transformation.SetLine(0, cos(Rotation), 0, sin(Rotation), 0);
+            Transformation.SetLine(0, float(cos(Rotation)), 0, float(sin(Rotation)), 0);
             Transformation.SetLine(1, 0, 1, 0, 0);
-            Transformation.SetLine(2, -sin(Rotation), 0, cos(Rotation), 0);
+            Transformation.SetLine(2, float(-sin(Rotation)), 0, float(cos(Rotation)), 0);
             Transformation.SetLine(3, 0, 0, 0, 1);
             break;
         case AXE_Z:
-            Transformation.SetLine(0, cos(Rotation), -sin(Rotation), 0, 0);
-            Transformation.SetLine(1, sin(Rotation), cos(Rotation), 0, 0);
+            Transformation.SetLine(0, float(cos(Rotation)), float(-sin(Rotation)), 0, 0);
+            Transformation.SetLine(1, float(sin(Rotation)), float(cos(Rotation)), 0, 0);
             Transformation.SetLine(2, 0, 0, 1, 0);
             Transformation.SetLine(3, 0, 0, 0, 1);
             break;
