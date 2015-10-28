@@ -24,8 +24,9 @@ namespace nsHanoi
     class Cube
     {
     private:
+#ifdef GRENABLED
         GLuint texture = 0;
-
+#endif
         float m_VPoints[8][4];
         //Tableau de points, chacun correspondant a un sommet du pave
         //8 Vecteurs : (x, y, z, w)

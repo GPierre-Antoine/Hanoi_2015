@@ -18,7 +18,7 @@ add_executable(Hanoi_2015 main.cpp ${Cepepes})
 
 
 if (WIN32)
-    add_definitions(-DGRENABLED)
+    add_definitions(-DGRENABLE)
     #########################################################
     # FIND OPENGL
     #########################################################
