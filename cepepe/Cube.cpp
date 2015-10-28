@@ -44,7 +44,7 @@ HAN::Cube(const Point &A, const Point &B,
 
 void HAN::SetPoint(unsigned Case, float X, float Y, float Z, float W) noexcept
 {
-    if (Case >= 0 || Case <= 7)
+    if (Case <= 7)
     {
         m_VPoints[Case][0] = X;
         m_VPoints[Case][1] = Y;
