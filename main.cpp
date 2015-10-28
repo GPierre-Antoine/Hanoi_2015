@@ -64,13 +64,13 @@ int main()
 
         glMatrixMode(GL_MODELVIEW);
         glLoadIdentity();
-#endif
+
 
         rsm.setView();
 
 
         rsm.RenderAll();
-
+#endif
         if (Cpt < 100)
         {
             Pave.Move(0.01, 0, 0);
