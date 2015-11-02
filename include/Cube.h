@@ -9,7 +9,6 @@
 #include <SFML/Graphics.hpp>
 
 #include "Point.h"
-#include "Droite.h"
 #include "Matrix.h"
 
 
