@@ -2,9 +2,8 @@
 // Cube.cpp
 //
 
-#include <Droite.h>
 #include <GL/gl.h>
-#include "Cube.h"
+#include <Cube.h>
 #include <iostream>
 
 #ifdef GRENABLED

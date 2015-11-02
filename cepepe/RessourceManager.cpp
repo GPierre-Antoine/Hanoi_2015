@@ -88,7 +88,6 @@ void nsHanoi::RessourceManager::RenderAll() const noexcept
     for  (const tCube & i : vect)
         i.first->Affichage();
     //gluSphere(gluNewQuadric(),biggest_disk,5,5);
-
     /**/
 }
 
