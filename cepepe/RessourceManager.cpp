@@ -52,7 +52,7 @@ void nsHanoi::RessourceManager::Initialize_All_Cubes () noexcept
     Point D(0, 0 , 0);
     Point E(10, 0, 4);
     */
-    *support =  (Cube(A,B,D,E));
+    support =  new Cube(A,B,D,E);
     //tiges
     for (unsigned char i (0);i< number_of_pikes;++i)
     {
@@ -109,3 +109,8 @@ void nsHanoi::RessourceManager::HanoiA (unsigned int nbdisk, size_t origine, siz
         HanoiA (nbdisk - 1, intermediaire, dest, origine);
     }
 }/**/
+
+nsHanoi::RessourceManager::~RessourceManager()
+{
+    delete support;
+}

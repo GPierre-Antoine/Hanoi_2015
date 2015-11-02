@@ -53,6 +53,6 @@ namespace nsHanoi
         void Algorithme ();
         void HanoiA (unsigned int nbdisk,std::size_t origine,std::size_t dest,std::size_t intermediaire);
 
-
+        ~RessourceManager ();
     };
 }
