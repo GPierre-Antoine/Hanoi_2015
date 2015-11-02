@@ -19,7 +19,7 @@ namespace nsHanoi
         unsigned char getNumber() const noexcept;
         void Affichage() const noexcept;
         void Add (Disc & a);
-        Disc& getDisk ();
+        nsHanoi::Disc& getDisk ();
         virtual ~Pike(){}
     private:
         unsigned char compteur = 0;

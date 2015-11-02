@@ -9,6 +9,7 @@
 #include <memory>
 #include <vector>
 #include <utility>
+#include <cstddef>
 #include "Cube.h"
 #include "Pike.h"
 #include "Disc.h"

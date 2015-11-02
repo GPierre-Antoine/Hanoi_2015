@@ -14,7 +14,6 @@
 
 
 using namespace std;
-using namespace nsHanoi;
 
 
 nsHanoi::RessourceManager::RessourceManager () {}
@@ -25,7 +24,7 @@ nsHanoi::RessourceManager & nsHanoi::RessourceManager::getInstance () noexcept
     return i;
 }
 
-void RessourceManager::setView() noexcept
+void nsHanoi::RessourceManager::setView() noexcept
 {
 #ifdef GRENABLED
     float unit = 2 * offset + biggest_disk;
