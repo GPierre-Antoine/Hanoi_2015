@@ -23,7 +23,7 @@ namespace nsHanoi
         virtual ~Pike(){}
     private:
         unsigned char compteur = 0;
-        std::vector<Disc> disques();
+        std::vector<Disc> disques;
         const unsigned char number;
     };
 }
