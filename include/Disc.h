@@ -15,7 +15,7 @@ namespace nsHanoi
 
         Disc (const Point &A, const Point &B, const Point &D, const Point &E,const unsigned char psize);
         unsigned char size;
-
+        virtual ~Disc () {}
     };
 
 }

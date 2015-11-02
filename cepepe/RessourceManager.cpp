@@ -7,7 +7,6 @@
 
 #include "RessourceManager.h"
 
-#define make_cube(a,b) make_pair(std::unique_ptr<nsHanoi::Cube>(a),b)
 
 using namespace std;
 using namespace nsHanoi;
@@ -49,12 +48,11 @@ void nsHanoi::RessourceManager::Initialize_All_Cubes () noexcept
     Point D(0, 0 , 0);
     Point E(10, 0, 4);
     */
-    vect.reserve(9);
-    vect.push_back ( make_cube (new Cube(A,B,D,E),0)); //index 0, does not matter
+    *support =  (Cube(A,B,D,E));
 
-
+    cols.resize(number_of_pikes);
     //tiges
-    for (unsigned i (0);i< number_of_pikes;++i)
+    for (unsigned char i (0);i< number_of_pikes;++i)
     {
         A = Point((2*offset + biggest_disk) / 2 + half, (i * (2*offset + biggest_disk)) * (2*offset + biggest_disk) / 2 - half, 0);
         B = Point((2*offset + biggest_disk) / 2 + half, (i * (2*offset + biggest_disk)) * (2*offset + biggest_disk) / 2 + half, 0);
@@ -62,9 +60,10 @@ void nsHanoi::RessourceManager::Initialize_All_Cubes () noexcept
         E = Point((2*offset + biggest_disk) / 2 + half, (i * (2*offset + biggest_disk)) * (2*offset + biggest_disk) / 2 - half,
                   base_height + (number_of_disks * disk_height));
 
-        vect.push_back( make_cube (new Cube(A, B, D, E),0));//index 0, does not matter
+        cols[i] = (Pike(A, B, D, E,i));
     }
 
+    disks.resize(number_of_disks);
     //disks
     for (unsigned char i (0);i<number_of_disks;++i)
     {
@@ -76,7 +75,7 @@ void nsHanoi::RessourceManager::Initialize_All_Cubes () noexcept
                  base_height + i * disk_height);
         Point E_(a,a,base_height + (i + 1) * disk_height);
 
-        vect.push_back( make_cube (new Cube(A_, B_, D_, E_),i + 1));
+        disks.push_back (Disc(A_,B_,D_,E_,i));
         //index 1 to number_of_disks +1.
 
     }
@@ -85,10 +84,9 @@ void nsHanoi::RessourceManager::Initialize_All_Cubes () noexcept
 void nsHanoi::RessourceManager::RenderAll() const noexcept
 {
     /**/
-    for  (const tCube & i : vect)
-        i.first->Affichage();
+    support->Affichage ();
+    for  (const Pike & i : cols)
+        i.Affichage();
     //gluSphere(gluNewQuadric(),biggest_disk,5,5);
     /**/
 }
-
-#undef make_cube

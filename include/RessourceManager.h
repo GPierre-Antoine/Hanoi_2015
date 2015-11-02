@@ -10,16 +10,14 @@
 #include <vector>
 #include <utility>
 #include "Cube.h"
-
-
-typedef std::pair<std::unique_ptr<nsHanoi::Cube>, unsigned char> tCube;
-
+#include "Pike.h"
+#include "Disc.h"
 
 namespace nsHanoi
 {
     class RessourceManager
     {
-    private:
+    public:
         static constexpr float biggest_disk = 4.f  ;
         static constexpr float offset = 1.f;
         static constexpr unsigned int square = 1;
@@ -36,9 +34,12 @@ namespace nsHanoi
 
         static constexpr float delta_decrease = 0.5f;
 
+    private:
 
         RessourceManager ();
-        std::vector<tCube> vect;
+        Cube *support;
+        std::vector<Disc> disks;
+        std::vector<Pike> cols;
         RessourceManager operator = (const RessourceManager &) = delete;
         RessourceManager (const RessourceManager &) = delete;
     public:
