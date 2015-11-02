@@ -18,8 +18,8 @@ namespace nsHanoi
         Cube cube;
         unsigned char getNumber() const noexcept;
         void Affichage() const noexcept;
-        void Add (Cube a);
-        Cube& getDisk ();
+        void Add (Disc & a);
+        Disc& getDisk ();
         virtual ~Pike(){}
     private:
         unsigned char compteur = 0;

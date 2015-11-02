@@ -18,12 +18,12 @@ nsHanoi::Pike::Affichange() const noexcept
     }
 }
 
-void nsHanoi::Pike::Add (Cube & a)
+void nsHanoi::Pike::Add (Disc & a)
 {
     disques[++compteur] = a;
 }
 
-Cube & nsHanoi::Pike::getDisk()
+Disc & nsHanoi::Pike::getDisk()
 {
 
     return disques[compteur--];

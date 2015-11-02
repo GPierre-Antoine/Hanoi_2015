@@ -17,6 +17,14 @@ namespace nsHanoi
 {
     class RessourceManager
     {
+    private:
+        RessourceManager ();
+        Cube *support;
+        std::vector<Disc> disks;
+        std::vector<Pike> cols;
+        RessourceManager operator = (const RessourceManager &) = delete;
+        RessourceManager (const RessourceManager &) = delete;
+
     public:
         static constexpr float biggest_disk = 4.f  ;
         static constexpr float offset = 1.f;
@@ -34,21 +42,15 @@ namespace nsHanoi
 
         static constexpr float delta_decrease = 0.5f;
 
-    private:
-
-        RessourceManager ();
-        Cube *support;
-        std::vector<Disc> disks;
-        std::vector<Pike> cols;
-        RessourceManager operator = (const RessourceManager &) = delete;
-        RessourceManager (const RessourceManager &) = delete;
-    public:
 
         void setView() noexcept;
         static RessourceManager & getInstance () noexcept;
         void add(const Cube & elem) noexcept;
         void RenderAll() const noexcept;
         void Initialize_All_Cubes () noexcept;
+
+        void Algorithme ();
+        void HanoiA (unsigned int nbdisk,std::size_t origine,std::size_t dest,std::size_t intermediaire);
 
 
     };
