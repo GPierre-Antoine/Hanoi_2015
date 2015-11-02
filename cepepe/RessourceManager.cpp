@@ -97,13 +97,15 @@ void nsHanoi::RessourceManager::Algorithme ()
     HanoiA (number_of_disks,0,2,1);
 }
 
-/*
-  if (nbdisk)
+/**/
+void nsHanoi::RessourceManager::HanoiA (unsigned int nbdisk, size_t origine, size_t dest, size_t intermediaire)
+{
+    if (nbdisk)
     {
-        HanoiA(nbdisk -1,origine,intermediaire,dest);
-        Disc &temp = cols[origine].getDisk ();
-        temp.Moveto(cols[dest].cube);
-        cols[dest].Add(temp);
-        HanoiA(nbdisk -1,intermediaire,dest,origine);
+        HanoiA (nbdisk - 1, origine, intermediaire, dest);
+        Disc & temp = cols[origine].getDisk ();
+        temp.Moveto (cols[dest].cube);
+        cols[dest].Add (temp);
+        HanoiA (nbdisk - 1, intermediaire, dest, origine);
     }
- */
+}/**/

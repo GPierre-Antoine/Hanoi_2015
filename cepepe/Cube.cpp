@@ -299,6 +299,11 @@ nsHanoi::Point HAN::GetCenter () noexcept
     return Point (X, Y, Z);
 
 }
+void HAN::Moveto (const Cube & target)
+{
+
+}
+
 
 
 #undef HAN

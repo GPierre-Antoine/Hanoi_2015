@@ -71,6 +71,8 @@ namespace nsHanoi
 
         // Renvoit le point au centre du cube
         Point GetCenter () noexcept;
+
+        void Moveto (const Cube & target);
     
     }; // class Cube
 }
