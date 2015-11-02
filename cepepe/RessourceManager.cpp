@@ -105,6 +105,7 @@ void nsHanoi::RessourceManager::HanoiA (unsigned int nbdisk, size_t origine, siz
         HanoiA (nbdisk - 1, origine, intermediaire, dest);
         Disc & temp = cols[origine].getDisk ();
         temp.Moveto (cols[dest].cube);
+
         cols[dest].Add (temp);
         HanoiA (nbdisk - 1, intermediaire, dest, origine);
     }
