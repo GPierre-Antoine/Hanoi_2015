@@ -125,14 +125,20 @@ void HAN::ApplyTransformation(const nsHanoi::Matrix &Transformation) noexcept
 
     for (unsigned i = 0; i < 8; ++i)
     {
+        //OK je suis debile, j'utilisait x qui vient d'etre modifie, pour faire y -_-
+        //correction : 
+        float X = m_VPoints[i][0];
+        float Y = m_VPoints[i][1];
+        float Z = m_VPoints[i][2];
+        float W = m_VPoints[i][3];
         // X
-        m_VPoints[i][0] = P[i][0] * T[0][0] + P[i][1] * T[0][1] + P[i][2] * T[0][2] + P[i][3] * T[0][3];
+        m_VPoints[i][0] = X * T[0][0] + Y * T[0][1] + Z * T[0][2] + W * T[0][3];
         // Y
-        m_VPoints[i][1] = P[i][0] * T[1][0] + P[i][1] * T[1][1] + P[i][2] * T[1][2] + P[i][3] * T[1][3];
+        m_VPoints[i][1] = X * T[1][0] + Y * T[1][1] + Z * T[1][2] + W * T[1][3];
         // Z
-        m_VPoints[i][2] = P[i][0] * T[2][0] + P[i][1] * T[2][1] + P[i][2] * T[2][2] + P[i][3] * T[2][3];
+        m_VPoints[i][1] = X * T[2][0] + Y * T[2][1] + Z * T[2][2] + W * T[2][3];
         // W
-        m_VPoints[i][3] = P[i][0] * T[3][0] + P[i][1] * T[3][1] + P[i][2] * T[3][2] + P[i][3] * T[3][3];
+        m_VPoints[i][3] = X * T[3][0] + Y * T[3][1] + Z * T[3][2] + W * T[3][3];
 
     }
 
